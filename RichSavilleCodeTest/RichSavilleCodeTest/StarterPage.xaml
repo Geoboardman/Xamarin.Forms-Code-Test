@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RichSavilleCodeTest.StarterPage">
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="3*"></RowDefinition>
+      <RowDefinition Height="1*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <StackLayout Orientation="Vertical" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+      <Label Text="{Binding Movielist.title}" />
+      <Label Text="{Binding Movielist.description}"/>
+    </StackLayout>
+    <ListView Grid.Row="1" x:Name="MainList" ItemsSource="{Binding Movielist.movies}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal">
+              <Label TextColor="White" Text="{Binding title}" ></Label>
+              <Label TextColor="White" Text="{Binding releaseYear}" ></Label>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <Button x:Name="UpdateList" Grid.Row="2" Text="UpdateListView" TextColor="Black" BackgroundColor="White" BorderRadius="0"></Button>
+  </Grid>
+</ContentPage>
